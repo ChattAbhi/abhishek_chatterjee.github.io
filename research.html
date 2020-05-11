@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<title>Abhishek's Research
+</title>
+</head>
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+  <div class="menu-category">Content</div>
+  <div class="menu-item"><a href="index.html">Home</a></div>
+  <div class="menu-item"><a href="education.html">Education</a></div>
+  <div class="menu-item"><a href="research.html">Research</a></div>
+  <div class="menu-item"><a href="publications.html">Publications</a></div>
+  <div class="menu-item"><a href="experience.html">Experience</a></div>
+  <div class="menu-item"><a href="otherprojects.html">Other Projects</a></div>
+</td>
+<td id="layout-content">
+<div id="toptitle">
+<h1>Research
+</h1>
+<div id="subtitle">&nbsp;&nbsp;&nbsp;
+
+
+
+</div>
+</div>
+<h2>Ongoing Projects</h2>
+<h3><a id="soft"><b>Soft Body Contact and Impact</b></a></h3>
+<p> The goal of this work is to develop a model soft/flexible body contact and
+impacts. Soft/Flexible bodies undergo large deformations during collision, which
+are governed by the stiffness and damping properties of the body.
+The focus of this work will be to develop a method that extends the rigidity
+based multi-point contact and impact analysis, proposed in our earlier works,
+to incorporate large deformations during contact/impact.
+The benchmark problem that would be analyzed in this work is that of
+a rigid ball contacting/impacting a inflated air-bladder.
+This particular problem would have applications in the modeling of
+a variety of mechanical systems such as smart pressure beds (pictured below), soft robotic systems,
+bionic comoponents, etc.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><img src="media/bed1.jpg" width="150" />&nbsp;</td>
+  <td><img src="media/bed2.jpg" width="150" />&nbsp;</td>
+  </tr>
+</table>
+<figcaption>Fig - A CAD rendering of smart pressure bed. The bed would adjust the bladder
+  pressure and bed configuration to minimize risk of bed sores and pressure ulcers.</figcaption>
+</figure>
+</center>
+<p> A preliminary result, shown below, uses a constraint-embedding approach to
+model the contact between a planar ball and an inflated air-bladder. The
+bladder is modeled using a large number of nodal masses, connected by
+spring-damper models (Kelvin-Voight).
+</p>
+<center><figure><video width="480" height="320" autoplay loop>
+  <source src="media/DropBall1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<figcaption>Fig - A preliminary result of a ball dropping on an air-bladder.</figcaption>
+</figure></center>
+
+
+
+<h3><a id="impact_force"><b>Force Estimation in Rigid Impacts </b></a></h3>
+<p> In our previous work, we have developed models for hard (rigid)
+collisions, using a non-smooth approach. The impact model
+developed for rigid body collisions are analyzed in impulse-domain, where
+the impact states are evolved with respect to a single independent parameter.
+One drawback of impulse-domain analysis of impacts is that the
+force and deformation histories during the impact event are lost.
+The goal of this work is to develop modeling methodology to
+retain the force and deformation histories while using an impulse-domain
+analysis. The approach used in this work is to use a contact mechnaical force model
+along with the impulse-domain analysis to determine the force and deformation
+histories during impacts. The video below shows a preliminary simulation
+result obtained using this approach, where the deformations and
+forces are being evolved simultaneously along with the contact points velocities
+and impulses.
+</p>
+<center><figure><video width="960" height="480" autoplay loop>
+  <source src="media/block.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<figcaption>Fig - A preliminary result of a rigid block undergoing impacts at 4 contact points simultaneously.</figcaption>
+</figure></center>
+
+<h2>Past Projects</h2>
+<h3><a id="rigid3D"><b>Three-dimensional Rigid Contact and Impact Modeling </b></a></h3>
+<p> The goal of this work was to develop a general framework for modeling three-dinensional
+frictional contacts and impacts between rigid surfaces. In our earlier work, we have
+a developed a method for constraining the forces during multi-point contact and impact
+in planar models, using the property of rigidity. This work uses similar constraints
+to model surface-to-surface collisions in three-dimensions, by analyzing impacts at
+number of points representing the surface of a body.
+One key problem, addressed in this work, is related to the problem of analyzing
+multi-point stick-slip transition. When one or more contact point(s) enter stick-slip
+transition, there are two possibilities: contact point(s) may 1) stick or 2) slip-reverse.
+If a multi-point impact experience slip-reversal, the slip-directions of all contact points
+reset to new directions. This work presents a method to solve for these unknown slip directions.
+This work also revisits and generalizes the method of contact constraining planar contacts, for
+three-dimensional contacts. The animation below shows the simulation results for a rigid ball impacting
+a corner at three points.
+</p>
+<center><figure><video width="480" height="320" autoplay loop>
+  <source src="media/Ball3D.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<figcaption>Fig - Animation of a rigid ball impacting a ground-wall corner at three points of contact </figcaption>
+</figure></center>
+<p>One feature of this method is that for collisions the post-impact velocities are invariant to the number
+of contact points used in the impact analysis. Hence, any number of points may be used to represent the
+surface of a rigid body. The animations below compares the simulation results of a rigid block width
+different number of contact points, where they are being dropped with the same initial conditions.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><video width="200" height="200" autoplay loop>
+    <source src="media/3D_VariablePoints/Block_4pt.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><video width="200" height="200" autoplay loop>
+    <source src="media/3D_VariablePoints/Block_8pt.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><video width="200" height="200" autoplay loop>
+      <source src="media/3D_VariablePoints/Block_16pt.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video></td>
+  <td><video width="200" height="200" autoplay loop>
+      <source src="media/3D_VariablePoints/Block_25pt.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video></td>
+  </tr>
+</table>
+<figcaption>Fig - Animations of simulation results of identical rigid blocks being analyzed for contact and impact at 1) four points,
+  2) eight points, 3) sixteen points and 4) twenty-five points.</figcaption>
+</figure>
+</center>
+<p>The proposed modeling technique was also validated againts experimental results of the angular response
+  of a rigid block rocking against the ground. The animations below show the simulated results of
+  the rocking response for three different specimens.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><video width="300" height="300" autoplay loop>
+    <source src="media/3D_Angular/Specimen1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><video width="300" height="300" autoplay loop>
+    <source src="media/3D_Angular/Specimen2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><video width="300" height="300" autoplay loop>
+      <source src="media/3D_Angular/Specimen4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video></td>
+  </tr>
+</table>
+<figcaption>Fig - Animations of 3D rigid block angular rocking response used to validate the method study</figcaption>
+</figure>
+</center>
+<p style="font-size:50%"><b><u>Related Publications</u></b></p>
+<ul>
+<li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Modeling three-dimensional surface-to-surface rigid contact and impact. </I></B>Multibody System Dynamics (in press).</p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Resolving the Unique Invariant Slip-Direction in Rigid Three-Dimensional Multi-Point Impacts at Stick-Slip Transitions. </I></B>ASME 2018 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (IDETC/CIE), August 26-29, 2018. Quebec City, Canada. </p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Analysis of Three Dimensional Indeterminate Impacts using Rigid Body Constraints. </I></B> In Proceedings of the 4th Joint International Conference on Multibody System Dynamics (IMSD), May 29 - June 2, 2016. McGill University, Montreal, Quebec, Canada. </p></li>
+<li><p style="font-size:50%">Adrian Rodriguez, Abhishek Chatterjee and Alan Bowling. <I><B>Solution to three-dimensional indeterminate contact and impact with friction using rigid body constraints. </I></B> In Proceedings of the ASME 2015 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (IDETC/CIE), August 2-5, 2015. Boston, Massachusetts, USA.</p></li>
+</ul>
+
+<h3><a id="rigid2D"><b>Planar Rigid Contact and Impact Modeling </b></a></h3>
+<p> This work addressed the problem of modeling planar multi-point contacts and impacts in a rigid body system. Analysis of multipoint
+  collisions often yield an indeterminate problem. In this context, the indeterminacy arises due to the fact that the number of forces (impulses)
+  involved in a multi-point collison is often greater than the number of equations of motion available to solve for them. Hence, this
+  work uses additional constraints based on the property of rigidity of the bodies to solve for the unknown contact forces (impulses) in terms
+  of a single independent force (impulse) parameter, that governs the evolution of the velocities of the system. This work also proposes a global
+  coefficient of restitution parameter that can chracterize post-impact states for a collison. A scheme for transitioning to contact is
+  also proposed in this work. The proposed method was validated against experimental results of angular responses of planar rigid block
+  undergoing a rocking motion. The animations below demonstrate this rocking motion for three different block specimens.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><video width="300" height="300" autoplay loop>
+    <source src="media/2D_Angular/Specimen1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><video width="300" height="300" autoplay loop>
+    <source src="media/2D_Angular/Specimen2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><video width="300" height="300" autoplay loop>
+      <source src="media/2D_Angular/Specimen4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video></td>
+  </tr>
+</table>
+<figcaption>Fig - Animations of planar rocking block responses for three different block specimens.</figcaption>
+</figure>
+</center>
+<p style="font-size:50%"><b><u>Related Publications</u></b></p>
+<ul>
+<li><p style="font-size:50%">Abhishek Chatterjee, Adrian Rodriguez and Alan Bowling. <I><B>Analytic solution for planar indeterminate impact problems using an energy constraint. </I></B>Multibody System Dynamics, vol. 42, no. 3, pages 347-379, March 2018.</p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Modeling Rigid Body Multi-point Contact-Impact Transition for Event-Based Simulation Schemes. </I></B>In Proceedings of Multibody Dynamics 2017, An ECCOMAS Thematic Conference, June 19-22, 2017. Prague, Czech Republic.</p></li>
+</ul>
+
+
+<h3><a id=atlas><b>Foot-Ground Collision Modeling for a Legged Robot</b></a></h3>
+<p> The main objective of this work was to model the foot-ground collisions for legged robotic system. In this work, a dynamic model
+of the ATLAS bipedal robot was simulated while considering the impacts between the feet and the ground. The collisions between the feet
+and the ground were analyzed using 1) four contact point and 2) eight contact point models of the foot. The indeterminate impacts between
+the feet and the ground were resolved using frictional and rigid-body constraints. Also, a global coefficent of restitution parameter
+was used to characterize the post-impact states of the robot. Simulations for a simple walking task was performed by first generating
+operation space trajectories and then converting them to the desired configuration space trajectories by means of a levenberg-marquardt
+based inverse-kinematics algorithm. A PD feedback controller was implemented to generate the simulations for the bipedal walking. Although
+this study didn't address issues related to control of robotic systems undergoing impacts, it created an improved framework for analyzing impacts
+in legged robotic systems, for future work on manipulation and control apects such as walking stabilty, agility and jumping. The animations
+below show the simulation results of the walking task and the changes in velocities and normal work for each foot-ground collison.
+</p>
+<center><figure>
+  <table class="imgtable"><tr>
+    <td><video width="480" height="320" autoplay loop>
+      <source src="media/AtlasWalk.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></td>
+    <td><video width="480" height="320" autoplay loop>
+      <source src="media/AtlasWalkingImpacts.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></td>
+    </tr>
+  </table>
+<figcaption>Fig - Animation of the walking task performed by the ATLAS robot with the foot-ground collisions results.</figcaption>
+</figure></center>
+<p style="font-size:50%"><b><u>Related Publication</u></b></p>
+<ul>
+<li><p style="font-size:50%">Abhishek Chatterjee. <I><B>Three-dimensional indeterminate impacts in legged robotic locomotion. </I></B> Available from Dissertations & Theses @ University of Texas - Arlington; ProQuest Dissertations & Theses Global.</p></li>
+</ul>
+
+<h2>Undegraduate Projects - The baby steps towards research 😁</h2>
+<h3><a id="roadrumble"><b>Road Rumble Energy Harvestor</b></a></h3>
+<p> A proposed concept of harvesting energy by capturing the dissipated energy from vehicles travelling over rumble strips.
+  A movable rumble strip concept was designed and prototyped, such that any impulsive force applied on the rumble strip can rotate a shaft attached to
+  an electricity generator can be rotated using a clutch and rack-pinion mechanism. The design was optimized based on the equations of motion obtained for
+  the system from dynamic analysis.
+</p>
+<p style="font-size:50%"><b><u>Related Publication</u></b></p>
+<ul>
+<li><p style="font-size:50%">M. Salim Azzouz, Abhishek Chatterjee, Robert Rorabaugh, Christopher Venegas, Krista Duke, John Mark Weller and Chris Smith. <I><B>Active Road Rumble Energy Harvesting Panels. </I></B> In Proceedings of the ASME 2013 International Mechanical Engineering Congress and Exposition, November 15-21, 2013. San Diego, California, USA.</p></li>
+</ul>
+
+<h3><a id="UGROW"><b>Campus Energy Study</b></a></h3>
+<p>
+  Feasibility study and Estimation on various technologies for production of energy on university campuses. Technologies that were
+  studied in this project include: Solar Roof Vehicles (Energy obtained from vehicles with solar paneled roofs), Biogas (Obtained
+  from a proposed waste treatment plant), Compressed Air Energy (Proposed concept of storing the energy in the form of compressed air) and
+  Road Power Energy (Proposed concept of harvesting energy by capturing dissipated energy from vehicles travelling over rumble strips).
+</p>
+
+<div id="footer">
+<div id="footer-text">
+<a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+<!-- Default Statcounter code for My Research Website
+http://omega.uta.edu/~axc8313/ -->
+<script type="text/javascript">
+var sc_project=11946566;
+var sc_invisible=1;
+var sc_security="cd18e0a6";
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/11946566/0/cd18e0a6/1/"
+alt="Web Analytics Made Easy -
+StatCounter"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<title>Abhishek's Projects</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+  <div class="menu-category">Content</div>
+  <div class="menu-item"><a href="index.html">Home</a></div>
+  <div class="menu-item"><a href="education.html">Education</a></div>
+  <div class="menu-item"><a href="research.html">Research</a></div>
+  <div class="menu-item"><a href="publications.html">Publications</a></div>
+  <div class="menu-item"><a href="experience.html">Experience</a></div>
+  <div class="menu-item"><a href="otherprojects.html">Other Projects</a></div>
+</td>
+<td id="layout-content">
+<div id="toptitle">
+<h1>Other Projects
+</h1>
+<div id="subtitle">&nbsp;&nbsp;&nbsp;
+
+
+
+</div>
+</div>
+<h2>A Few Interesting Class Projects</h2>
+
+<h3><a id="adaptive"><b>Adaptive Feedback Linearization Control of Planar Bipedal Robot</b></a></h3>
+<p><i>Class Project for Intelligent Control Systems Course: EE-5322; Fall, 2017</i></p>
+<p>The goal of this project was to implement an adaptive feedback linearization control
+  strategy for the legged locomotion of a bipedal robot. The bipedal robot model used for
+  this project was a simple stick-figure planar model of 6 degrees of freedom, consisting
+  of a base and two legs. The end-points of these legs were considered to be the feet of
+  the robot that came in and out of contact with the ground. The contact between the
+  robot feet and the ground were assumed to be not slipping or rebounding at any time.
+  The degrees of freedom of this system changes depending upon the contact states of the two feet.
+  Hence, the plant dynamics for the robot has different modes depending upon the contact
+  states at the two feet, thereby yielding what is known as a hybrid dynamic system.
+  It is very difficult to control hybrid dynamic systems with a linear controller without
+  an inverse dynamics model. Therefore, in this project the idea of using adaptive
+  controller to linearize the plant dynamics was explored for this problem. Adaptive controllers
+  use the outputs of the system as regression functions and scale them with certain weighing
+  parameters to yield a model for the inverse plant dynamics. These weighing parameters
+  are then updated with the help of the system's error dynamics based on a recursive least-squares
+  approach. The adaptive inverse plant model obtained using this appproach is then cascaded
+  with the actual plant model to yield an apparent linearized plant model, which can be controlled
+  using a simple linear proportional controller. The reference input to the system was calculated
+  from operation space desired trajectories by means of inverse kinematics using a levenberg-marquardt
+  approach. The figure below shows the animation of the biped model and also shows a comparison
+  between the desired configuration space trajectories vs. actual trajectories.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><video width="400" autoplay loop>
+    <source src="media/nonresearch/biped.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><img src="media/nonresearch/biped_coord.png" width="600" />
+  </td>
+  </tr>
+</table>
+<figcaption>Fig - Animation of biped legged locomotion and plots of biped coordinates</figcaption>
+</figure>
+</center>
+<p><i>Although initially, when I conceived this idea of using an adaptive controller on a biped
+  robot model as my class project, I wanted to implement it on a more realistic, underactuated model of biped.
+  However, eventually I found out that adaptive feedback linearization of underactuated system can be
+  quit complicated and would have been way beyond the scope of my class project. So I ended up changing the model to
+  a fully-actuated one. Nevertheless, I found this topic very interesting, and would like to explore this more in future.
+</i></p>
+
+<h3><a id="randezvous"><b>Minimum-Time Path Planning for 2-Robot Obstacle Avoidance and Randezvous Problem</b></a></h3>
+<p><i>Class Project for Optimal Control of Dynamic Systems Course: ME-5335; Fall, 2016</i></p>
+<p>The objective of this project was to develop a minimum-time path planning and obstacle avoidance algorithms for a 2-Robot (Unmanned Ground Vehicles)
+  rendezvous problem. The dynamics for the UGV robots used for this problem were given by simple kinematic model:
+  $$ \begin{array}{ccl} \dot{x_r} & = & V \cos(\phi) \sin(\theta) \\ \dot{y_r} & = & V \cos(\phi) \cos(\theta) \\ \dot{\theta} & = & \frac{V}{L} \sin(\theta)  \end{array} $$
+  where $x_r$, $y_r$ and $\theta$ are the position coordinates and heading angle for a robots, $V = 0.2$ units and $L$ are the constant velocity
+  and width of the robot respectively. $\phi$ is the steering angle and also the control input to the system. The steering angle (contol)
+  is bounded by the inequality: $-\frac{\pi}{2} \leq \phi \leq \frac{\pi}{2}$.
+</p>
+<center><figure><img src="media/nonresearch/ExampleCost.png" width="350" />
+<figcaption>Fig - Visualization of cost as a function of position. The cost is minimum at the goal location, and increases near the obstacles.</figcaption>
+</figure></center>
+<p> The path-planning required for this problem was posed as a dynamic optimization problem, and an objective
+  functional (Lagrangian) was formulated which combined two cost terms: 1) a cost term directly proportional to the distance between the robots and the goal,
+  and 2) a cost term inversely proportional to the exponential of the distance between the robots and the obstacles.
+  The figure above shows an example of the cost function with respect to a given robot position.
+  The Lagrangian functional was augumented with a set of lagrange multipliers to formulate a hamiltonian function, which
+  was then used to derive the necessary conditions for optimaility (by means of calculus of variations), which yielded
+  a two-point boundary value problem (TPBVP). Finally, in order to get a minimum-time path a shooting method
+  algorithm based on a cost function on the final time was developed to get the solution. The animation
+  below shows the minimum-time path and the control history for this problem.
+</p>
+<center><figure><video width="960" height="480" autoplay loop>
+  <source src="media/nonresearch/randezvous.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<figcaption>Fig - Minimum-Time paths solution for the two robots, and the control history.</figcaption>
+</figure></center>
+<p><i>Note that this is probably not the best approach for solving this type of minimum-time randezvous problem. Direct
+solution methods such as differential inclusion or collocation are probably better suited for faster solution to this type of problem.
+Nevertheless, I chose this approach because I find the method of deriving necessary conditions with the help of Calculus of Variations, very elegent and deeply satisfying.
+</i></p>
+
+<h3><a id="UGV"><b>Development and Autonomous Control of Six-Wheeled Skid-Steer Unmanned Ground Vehicle Platform</b></a></h3>
+<p><i>Class Project for Unmanned Vehicle Development Course: ME-5379; Spring, 2015</i></p>
+<p><i>Team members: Philip Bailey, Fraiser Jones, Ramakrishna Lanka, Divya Shah</i></p>
+<p>The objective of this project was to develop a completely autonomous Unmanned Ground Vehicle system capable
+  of performing obstacle avoidance and way-point navigation human interference. A six-wheeled differential drive
+  UGV platform was developed by assembling various hobby electronics/robotics parts.
+  The platform was equipped with a number of different sensors
+  viz. GPS, IMU, compass, wheel-encoders, sonar sensor, and camera. An onboard computer (Intel NUC)
+  running MATLAB/Simulink was used to communicate to the low-level micro-controllers and
+  perform the computations for vision, localization, path-planning, guidance and control. The users
+  communicated with the onboard computer via remote desktop and provided high level commands.
+  The MATLAB code running on the computer processed the the video feed from the camera to identify
+  obstacles and goals based on color. A manhattan distance algorithm was used for planning the
+  the path, by assigning way-points, around the obstacles to the goal location. In order to localize
+  the UGV position, the algorithm performed sensor fusion (with inputs from GPS, IMU and wheel-encoder data)
+  by means of Kalman Filtering, based on a skid-steer dynamic model of the robot. The way-points
+  and position estimates were used to calculate desired heading and speed, as part of the guidance
+  for the robot. The guidance portion of the algorithm also utilized the sonar sensor input, as a fail-safe
+  for deflection or halt if the robot goes very close to the obstacles. A PID controller was used to command
+  a desired rpm to the six wheel-motors through a motor-controller.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+    <td><img src="media/nonresearch/UGV_computer.jpg" width="160" />
+    </td>
+    <td><img src="media/nonresearch/UGV_camera.jpg" width="170" />
+    </td>
+    <td><video width="500" autoplay muted loop>
+      <source src="media/nonresearch/drivingaround.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></td>
+  </tr>
+
+</table>
+<figcaption>Fig - The UGV platform at various stages of the project</figcaption>
+</figure>
+</center>
+
+<h2>Reasearch Offshoots</h2>
+
+<h3><a id="poly"><b>Resultant based multi-polynomial system solver</b></a></h3>
+<p> One of the problems, I was trying to address as part of my work on 3D impact modeling
+  is the resolution of unique slip-directions at the stick-slip transitions, if a point is
+  expected to slip-reverse. Typically,for single-point impacts, this is a very straightforward
+  analysis which boil down to the problem of finding roots of a quadratic, and then choosing
+  the correct solution among them based on an inequality. However, since I was working with
+  multipoint collisions,the problem of finding the slip-direction became a multi-polynomial
+  root finding problem. Note that an important requirement here is to find all possible roots for
+  a given multi-polynomial system, such that the one one them may be selected from them based on
+  a number of inequality criteria. Hence, any recursive root-finding technique wouldn't be
+  applicable here, since they only converge to a single root that depends upon the initial guess.
+  Hence, to solve this problem, I had to look for an alternative method for computing roots, and
+  as a result I came across a number of different methods viz. Homotopy Continuation, Groebner basis,
+  and Resultants. Among these methods, I decided to implement a resultant based approach to solve
+  for the multi-polynomial system roots. Polynomial resultants is actually a very vast subject,
+  typically studied as a part of Algebraic Geometry. I was only concerned about very small proportion
+  of it which offers alternative methods for solving roots simultaneously. The method I ended up
+  implementing is the one that calculates multipolynomial resultants and converts the multipolynomial
+  system to a polynomial eigenvalue problem, such that the roots of the system can be derived
+  from the various eigenvalues and eigenvectors. This approach is suitable for low degree polynomial
+  systems; however for very high-degree this approach doesn't offer good accuracy and is too
+  computationally expensive. Fortunately, the problem I was trying to address only needed roots
+  of degree 4 polynomial system, so this was approach worked pretty well, and was relatively
+  simpler to implement. I tested this algorithm with two problems: (a) inverse kinematics
+  of a 2-bar linkage (this problem can be posed as a root-finding problem for a second degree
+  system of polynomials), and (b) intersection points between multiple 3D elipsoids. The videos
+  below show the solutions obtained by this algorithm.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><video width="450" autoplay loop>
+    <source src="media/nonresearch/TwobarIK.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>(a)</p>
+  </td>
+  <td><video width="450" autoplay loop>
+    <source src="media/nonresearch/EllipsoidIntersect.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>(b)</p>
+  </td>
+  </tr>
+</table>
+<figcaption>Fig - Results of the two test problem: (a) shows the two feasible solutions
+  for an inverse-kinematic problem involving a 2-bar linkage with a given set of end-effector locations,
+  (b) shows the solution set of the intersection points between 3 elipsoids passing through
+  each other.
+</figcaption>
+</figure>
+</center>
+
+<h3><a id="toolbox"><b>MultiBody Dynamics Toolbox in MATLAB</b></a></h3>
+<p>
+  I have been working on a Toolbox (library) for performing multibody dynamic simulations on MATLAB.
+  This is going to be based on my research. I am using some of the methods I learned and developed as
+  part of my research to develop this library. I'll probably finish this after my dissertation, then
+  I can include certain parts of my reasearch into this library. I may make it public in future
+  after all the related research get published.
+</p>
+
+<h2>Other Videos</h2>
+<table><tr>
+  <td><video width="450" autoplay loop>
+    <source src="media/nonresearch/P3_swarm.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video></td>
+  <td><p>Potential Field based Trajectory Generation for a Swarm of Robots</p>
+  </td>
+  </tr>
+  <tr>
+    <td><video width="450" autoplay loop>
+      <source src="media/nonresearch/dblpend.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></td>
+    <td align="left"><p>A double pendulum simulated using a constraint embedding technique.
+      A Differential Algebraic Equations (DAE) system consisting of 12 coordinates (2nd order differential equations)
+      and 10 constraints (algebraic equations) was formulated for the double pendulum system
+      (12 coordinates - 10 constraints = 2 Degrees of Freedom). The DAE system
+      was solved using a orthogonal decomposition based coordinate partitioning technique.
+    </p>
+    </td>
+    </tr>
+  <tr>
+        <td><video width="450" autoplay loop>
+          <source src="media/nonresearch/No_Controller.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video></td>
+        <td><p>Inverted pendulum on a cart</p>
+        </td>
+    </tr>
+  <tr>
+      <td><video width="450" autoplay loop>
+        <source src="media/nonresearch/AnalogController.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video></td>
+      <td><p>Balancing an inverted pendulum on a cart using an Analog Controller (s-Domain PID)</p>
+      </td>
+  </tr>
+  <tr>
+      <td><video width="450" autoplay loop>
+        <source src="media/nonresearch/DiscreteController.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video></td>
+      <td><p>Balancing an inverted pendulum on a cart using an Digital Controller (z-Domain PID)</p>
+      </td>
+  </tr>
+  <tr>
+    <td><video width="450" autoplay loop>
+      <source src="media/nonresearch/Tricycle.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></td>
+    <td><p>Tricycle on a Ramp</p>
+    </td>
+    </tr>
+</table>
+
+<div id="footer">
+<div id="footer-text">
+<a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+
+<!-- Default Statcounter code for My Research Website
+http://omega.uta.edu/~axc8313/ -->
+<script type="text/javascript">
+var sc_project=11946566;
+var sc_invisible=1;
+var sc_security="cd18e0a6";
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - StatCounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/11946566/0/cd18e0a6/1/"
+alt="Web Analytics Made Easy -
+StatCounter"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
