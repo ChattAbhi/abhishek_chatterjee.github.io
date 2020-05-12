@@ -5,6 +5,8 @@
 <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 <title>Abhishek's Projects</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -84,9 +86,9 @@
 <p>The objective of this project was to develop a minimum-time path planning and obstacle avoidance algorithms for a 2-Robot (Unmanned Ground Vehicles)
   rendezvous problem. The dynamics for the UGV robots used for this problem were given by simple kinematic model:
   $$ \begin{array}{ccl} \dot{x_r} & = & V \cos(\phi) \sin(\theta) \\ \dot{y_r} & = & V \cos(\phi) \cos(\theta) \\ \dot{\theta} & = & \frac{V}{L} \sin(\theta)  \end{array} $$
-  where $x_r$, $y_r$ and $\theta$ are the position coordinates and heading angle for a robots, $V = 0.2$ units and $L$ are the constant velocity
-  and width of the robot respectively. $\phi$ is the steering angle and also the control input to the system. The steering angle (contol)
-  is bounded by the inequality: $-\frac{\pi}{2} \leq \phi \leq \frac{\pi}{2}$.
+  where \(x_r\), \(y_r\) and \(\theta\) are the position coordinates and heading angle for a robots, \(V = 0.2\) units and \(L\) are the constant velocity
+  and width of the robot respectively. \(\phi\) is the steering angle and also the control input to the system. The steering angle (contol)
+  is bounded by the inequality: \(-\frac{\pi}{2} \leq \phi \leq \frac{\pi}{2}\).
 </p>
 <center><figure><img src="media/nonresearch/ExampleCost.png" width="350" />
 <figcaption>Fig - Visualization of cost as a function of position. The cost is minimum at the goal location, and increases near the obstacles.</figcaption>
