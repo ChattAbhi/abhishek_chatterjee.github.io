@@ -19,6 +19,7 @@
   <div class="menu-item"><a href="publications.html">Publications</a></div>
   <div class="menu-item"><a href="experience.html">Experience</a></div>
   <div class="menu-item"><a href="otherprojects.html">Other Projects</a></div>
+  <div class="menu-item"><a href="CV.pdf">Curriculum Vitae</a></div>
 </td>
 <td id="layout-content">
 <div id="toptitle">
@@ -57,8 +58,7 @@ bionic comoponents, etc.
 </center>
 <p> A preliminary result, shown below, uses a constraint-embedding approach to
 model the contact between a planar ball and an inflated air-bladder. The
-bladder is modeled using a large number of nodal masses, connected by
-spring-damper models (Kelvin-Voight).
+bladder is modeled using a large number of nodal masses, connected by spring-damper models.
 </p>
 <center><figure><video width="480" height="320" autoplay loop>
   <source src="media/DropBall1.mp4" type="video/mp4">
@@ -66,8 +66,51 @@ Your browser does not support the video tag.
 </video>
 <figcaption>Fig - A preliminary result of a ball dropping on an air-bladder.</figcaption>
 </figure></center>
+<p> Further work is currently being undertaken to incorporate eigensolution methods
+  to model the flexible body response.
+</p>
 
-
+<h2>Past Projects</h2>
+<h3><a id="seismic"><b>Rocking Response of Free-Standing Block subject to Base Motion </b></a></h3>
+<p> This work is an application of our earlier work on <a href=""> planar multi-point rigid contact and impact
+  modeling</a> towards earthquake engineering. The rocking response of free-standing blocks subjected
+  to base motion (seismic loading or otherwise) is of high interest to earthquake engineers, as such
+  studies renders insights on the effects of slenderness on the stabilty of structures when subjected to seismic loading.
+  Earthquake engineers typically study these rocking responses by considering inverted pendulum type model
+  of a block. This work attempts to provide a more realistic model of rocking blocks that considers multiple-point
+  impacts, effects of friction and stick-slip transition.
+</p>
+<p>The videos below show some examples of planar rocking block simulations subjected to base motion.
+<center>
+  <figure>
+  <table class="imgtable"><tr>
+    <td><video width="400" height="400" autoplay loop>
+      <source src="media/rocking_base1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></td>
+    <td><video width="400" height="400" autoplay loop>
+      <source src="media/rocking_base2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></td>
+    </tr>
+    <tr>
+      <td><video width="400" height="400" autoplay loop>
+          <source src="media/rocking_base3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video></td>
+      <td><video width="400" height="400" autoplay loop>
+          <source src="media/stacked_rocking_base.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video></td>
+    </tr>
+  </table>
+  <figcaption>Fig - Animations of rocking block responses subjected to base motion.</figcaption>
+  </figure>
+</center>
+<p style="font-size:50%"><b><u>Related Publications</u></b></p>
+<ul>
+<li><p style="font-size:50%">Abhishek Chatterjee, Rashi Jain and Alan Bowling. <I><B>Modeling and Simulation of Rocking Block Dynamics subjected to Base Motion using an Energetic Restitution Law. </I></B>Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences. (Under Review).</p></li>
+</ul>
 
 <h3><a id="impact_force"><b>Force Estimation in Rigid Impacts </b></a></h3>
 <p> In our previous work, we have developed models for hard (rigid)
@@ -76,23 +119,29 @@ developed for rigid body collisions are analyzed in impulse-domain, where
 the impact states are evolved with respect to a single independent parameter.
 One drawback of impulse-domain analysis of impacts is that the
 force and deformation histories during the impact event are lost.
-The goal of this work is to develop modeling methodology to
+The goal of this work was to develop a modeling framework that could
 retain the force and deformation histories while using an impulse-domain
-analysis. The approach used in this work is to use a contact mechnaical force model
+analysis. The approach developed in this work uses a contact mechnaics based force model
 along with the impulse-domain analysis to determine the force and deformation
-histories during impacts. The video below shows a preliminary simulation
-result obtained using this approach, where the deformations and
-forces are being evolved simultaneously along with the contact points velocities
-and impulses.
+histories during impacts. This work was done in collaboration with <a href ="https://mech.rice.edu/users/brake">Dr. Matthew Brake</a>
+of Rice University and Dr. Hamid Ghaednia of Harvard Medical School.
+The video below shown below demonstrates a simulation result of a ball colliding
+with three corner walls, where the forces and deformations are being simultaneously
+evolved along with the post-impact velocities, while treating the collision
+to be rigid (based on Darboux-Keller model).
 </p>
 <center><figure><video width="960" height="480" autoplay loop>
-  <source src="media/block.mp4" type="video/mp4">
+  <source src="media/ball_force.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<figcaption>Fig - A preliminary result of a rigid block undergoing impacts at 4 contact points simultaneously.</figcaption>
+<figcaption>Fig - Rigid ball colliding at three contact points, while calculating forces and deformations around the contact points.</figcaption>
 </figure></center>
+<p style="font-size:50%"><b><u>Related Publications</u></b></p>
+<ul>
+<li><p style="font-size:50%">Abhishek Chatterjee, Hamid Ghaednia, Alan Bowling and Matthew Brake. <I><B>Estimation of Impact Forces during Multi-point Collisions involving Small Deformations. </I></B>Multibody System Dynamics. (Accepted, In-Press).</p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee, Alan Bowling, Hamid Ghaednia and Matthew Brake. <I><B>Approximate Force History Estimation In Multi-Point Non-Smooth Collisions </I></B>ASME 2019 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (IDETC/CIE), August 18-21, 2019. Anaheim, California. </p></li>
+</ul>
 
-<h2>Past Projects</h2>
 <h3><a id="rigid3D"><b>Three-dimensional Rigid Contact and Impact Modeling </b></a></h3>
 <p> The goal of this work was to develop a general framework for modeling three-dinensional
 frictional contacts and impacts between rigid surfaces. In our earlier work, we have
