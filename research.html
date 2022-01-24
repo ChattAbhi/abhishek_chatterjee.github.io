@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="jemdoc.css" type="text/css" />
 <title>Abhishek's Research
 </title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <table summary="Table for page layout." id="tlayout">
@@ -28,47 +31,70 @@
 <div id="subtitle">&nbsp;&nbsp;&nbsp;
 
 
-
 </div>
 </div>
-<h2>Ongoing Projects</h2>
-<h3><a id="soft"><b>Soft Body Contact and Impact</b></a></h3>
-<p> The goal of this work is to develop a model soft/flexible body contact and
-impacts. Soft/Flexible bodies undergo large deformations during collision, which
-are governed by the stiffness and damping properties of the body.
-The focus of this work will be to develop a method that extends the rigidity
-based multi-point contact and impact analysis, proposed in our earlier works,
-to incorporate large deformations during contact/impact.
-The benchmark problem that would be analyzed in this work is that of
-a rigid ball contacting/impacting a inflated air-bladder.
-This particular problem would have applications in the modeling of
-a variety of mechanical systems such as smart pressure beds (pictured below), soft robotic systems,
-bionic comoponents, etc.
+<h2>Recent/Current Projects</h2>
+<h3><a id="approx"><b>Coefficient of Restitution Approximation for Spherical Beads with External Load</b></a></h3>
+<p> Nonsmooth contact dynamics approaches are useful for granular dynamics simulation. An important consideration 
+  in these applications is the choice of Coefficient of Restitution values that can characterize various behaviors of 
+  the granular materials in such simulations. The true Coefficient of Restitution values depend upon several factors,
+  including pre-impact velocities, material properties, and the amount of external load on individual grains. Thus, our 
+  work deals with the problem of deriving an approximate analytical Coefficient of Restitution formula that can be used 
+  to uniquely compute the Coefficient of Restitution values for each collision based on pre-impact velocity, material 
+  properties, and external load values. The spherical bead (or grain) model used for this derivation is pictured below, 
+  where \( x(t) \) represents the displacement of the bead, and \( F \) is the magnitude of compressive external load. 
+</p>
+<center>
+<figure>
+<img src="media/bead_diagram.png" width="320" />
+<figcaption>Fig - Force diagram of a single spherical bead.</figcaption>
+</figure>
+</center>
+<p> In this work, a general nonlinear viscoelastic model is used to derive the approximate Coefficient of Restitution formulation, 
+  which leads to the dynamic model, \[ m \ddot{x} (t) = k \left[ {(-x)_+}^{\alpha} + \gamma_0 \frac{d}{dt} {(-x)_+}^{\beta} \right] - mg - F; \hspace{1cm} x(0) = 0, \; \dot{x}(0) = -v_0, \;\;\;\; \alpha,\beta \geq 1, \; \& \; F \geq 0  \]
+  with the physical parameters of mass \( m \), stiffness \( k \), damping ratio \( \gamma_0 \), external load, \(F \), and the 
+  nonlinear stiffness and damping term exponents \( \alpha \) and \( \beta \). The dynamics is rescaled in terms of a new time-scale variable \(\tau = t/T \) and a new length-scale variable \( u(\tau) = - \delta x(t) \), that lead to an equivalent dynamics \[ \frac{d^2 u}{d \tau^2} + \gamma \frac{d}{d \tau} (u_+^{\beta})  + u_+^{\alpha}  = \tilde{g}; \hspace{.5cm} u(0)=0, \; 
+  \frac{d u}{d \tau}(0) = 1;\hspace{.5cm} {\rm with,} \; \gamma = \gamma_0 v_0^{\frac{2 \beta}{\alpha + 1} - 1} {\left(\frac{k}{m} \right)}^{1 - \frac{\beta}{\alpha + 1}} \; {\rm and} \; \tilde{g} = {\left( \frac{m}{k} \right)}^{\frac{1}{\alpha + 1}} v_0^{\frac{-2 \alpha}{\alpha + 1}} \left( g + \frac{F}{m} \right)  \] 
+  The parameters \( \gamma \) and \( \tilde{g} \) are related to the damping and the magnitude of the external load, respectively. They are also related to the pre-impact velocity of the bead. Thus, using this new set of scaled parameters, this work 
+  presents several analytical expansions for the value of the Coefficient of Restitution. The figures below show how well some 
+  of the proposed approximations compare against numerical Coefficient of Restitution results for a particular visco-elastic model 
+  (Tsuji-Tanaka-Ishida model, \( \alpha = 3/2 \ \ \& \ \ \beta = 5/4 \)), subject to different stiffness, damping, pre-impact velocity and external load conditions.  
 </p>
 <center>
 <figure>
 <table class="imgtable"><tr>
-  <td><img src="media/bed1.jpg" width="150" />&nbsp;</td>
-  <td><img src="media/bed2.jpg" width="150" />&nbsp;</td>
+  <td><img src="media/AnCompCoR1.pdf" width="320" />&nbsp;</td>
+  <td><img src="media/AnCompCoR3.pdf" width="320" />&nbsp;</td>
+  <td><img src="media/AnCompCoR4.pdf" width="320" />&nbsp;</td>
   </tr>
 </table>
-<figcaption>Fig - A CAD rendering of smart pressure bed. The bed would adjust the bladder
-  pressure and bed configuration to minimize risk of bed sores and pressure ulcers.</figcaption>
+<figcaption>Fig - Example of a bouncing ball simulation, with the Coefficient of Restitution value being 
+calculated for every impact. The height, velocity, and CoR values are shown.</figcaption>
 </figure>
 </center>
-<p> A preliminary result, shown below, uses a constraint-embedding approach to
-model the contact between a planar ball and an inflated air-bladder. The
-bladder is modeled using a large number of nodal masses, connected by spring-damper models.
+<p> The various approximations proposed in this study work for a wide class of viscoelastic models ( \( \alpha \geq 1 \ \ \& \ \ \beta \geq 1  \) ) and can be used to calculate the Coefficient of Restitution value for each impact during simulation. The figures 
+ below show an example of such a computation for a bouncing ball simulation, where the Coefficient of Restitution is calculated for
+ each impact based on pre-impact velocity, external forces, and other properties, using the proposed approximation (for Kuwabara-Kono model, \( \alpha = \beta = 3/2 \)),
 </p>
-<center><figure><video width="480" height="320" autoplay loop>
-  <source src="media/DropBall1.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<figcaption>Fig - A preliminary result of a ball dropping on an air-bladder.</figcaption>
-</figure></center>
-<p> Further work is currently being undertaken to incorporate eigensolution methods
-  to model the flexible body response.
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><img src="media/bounce_height.png" width="320" />&nbsp;</td>
+  <td><img src="media/bounce_velocity.png" width="320" />&nbsp;</td>
+  <td><img src="media/bounce_CoR.png" width="320" />&nbsp;</td>
+  </tr>
+</table>
+<figcaption>Fig - Example of a bouncing ball simulation, with the Coefficient of Restitution value being 
+calculated for every impact. The height, velocity, and CoR values are shown.</figcaption>
+</figure>
+</center>
+<p> The various methods for Coefficient of Restitution computation proposed in this work have been packaged into a MATLAB toolbox and made available (<a href="https://github.com/ChattAbhi/Approx-ViscoElastic-CoR">Github</a> and <a href="https://www.mathworks.com/matlabcentral/fileexchange/102925-approx-viscoelastic-cor?s_tid=prof_contriblnk">MathWorks File Exchange</a>). A separate C++ implementation as a part of <a href="https://nonsmooth.gricad-pages.univ-grenoble-alpes.fr/siconos/">Siconos</a>, would be made available in the near future.  
 </p>
+<p style="font-size:50%"><b><u>Related Publications</u></b></p>
+<ul>
+<li><p style="font-size:50%">Abhishek Chatterjee, Guillaume James, and Bernard Brogliato. <I><B>Approximate coefficient of restitution for nonlinear viscoelastic contact with external load. </I></B>Granular Matter. (Under Review).</p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee, Guillaume James, and Bernard Brogliato. <I><B>Approximate analytical coefficient of restitution formulation for single bead impact with external load, using nonlinear visco-elastic models. </I></B> INRIA Research Report </p></li>
+</ul>
 
 <h2>Past Projects</h2>
 <h3><a id="seismic"><b>Rocking Response of Free-Standing Block subject to Base Motion </b></a></h3>
@@ -109,7 +135,7 @@ Your browser does not support the video tag.
 </center>
 <p style="font-size:50%"><b><u>Related Publications</u></b></p>
 <ul>
-<li><p style="font-size:50%">Abhishek Chatterjee, Rashi Jain and Alan Bowling. <I><B>Modeling and Simulation of Rocking Block Dynamics subjected to Base Motion using an Energetic Restitution Law. </I></B>Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences. (Under Review).</p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee, Rashi Jain and Alan Bowling. <I><B>Modeling and Simulation of Rocking Block Dynamics subjected to Base Motion using an Energetic Restitution Law. </I></B>Journal of Earthquake Engineering, pages 1-23, July  2021.</p></li>
 </ul>
 
 <h3><a id="impact_force"><b>Force Estimation in Rigid Impacts </b></a></h3>
@@ -138,7 +164,7 @@ Your browser does not support the video tag.
 </figure></center>
 <p style="font-size:50%"><b><u>Related Publications</u></b></p>
 <ul>
-<li><p style="font-size:50%">Abhishek Chatterjee, Hamid Ghaednia, Alan Bowling and Matthew Brake. <I><B>Estimation of Impact Forces during Multi-point Collisions involving Small Deformations. </I></B>Multibody System Dynamics. (Accepted, In-Press).</p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee, Hamid Ghaednia, Alan Bowling and Matthew Brake. <I><B>Estimation of Impact Forces during Multi-point Collisions involving Small Deformations. </I></B>Multibody System Dynamics, vol. 51, pages 45-90, January 2021.</p></li>
 <li><p style="font-size:50%">Abhishek Chatterjee, Alan Bowling, Hamid Ghaednia and Matthew Brake. <I><B>Approximate Force History Estimation In Multi-Point Non-Smooth Collisions </I></B>ASME 2019 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (IDETC/CIE), August 18-21, 2019. Anaheim, California. </p></li>
 </ul>
 
@@ -220,7 +246,7 @@ different number of contact points, where they are being dropped with the same i
 </center>
 <p style="font-size:50%"><b><u>Related Publications</u></b></p>
 <ul>
-<li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Modeling three-dimensional surface-to-surface rigid contact and impact. </I></B>Multibody System Dynamics (in press).</p></li>
+<li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Modeling three-dimensional surface-to-surface rigid contact and impact. </I></B> Multibody System Dynamics, vol. 46, no. 1, pages 1-40, May 2019.</p></li>
 <li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Resolving the Unique Invariant Slip-Direction in Rigid Three-Dimensional Multi-Point Impacts at Stick-Slip Transitions. </I></B>ASME 2018 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (IDETC/CIE), August 26-29, 2018. Quebec City, Canada. </p></li>
 <li><p style="font-size:50%">Abhishek Chatterjee and Alan Bowling. <I><B>Analysis of Three Dimensional Indeterminate Impacts using Rigid Body Constraints. </I></B> In Proceedings of the 4th Joint International Conference on Multibody System Dynamics (IMSD), May 29 - June 2, 2016. McGill University, Montreal, Quebec, Canada. </p></li>
 <li><p style="font-size:50%">Adrian Rodriguez, Abhishek Chatterjee and Alan Bowling. <I><B>Solution to three-dimensional indeterminate contact and impact with friction using rigid body constraints. </I></B> In Proceedings of the ASME 2015 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (IDETC/CIE), August 2-5, 2015. Boston, Massachusetts, USA.</p></li>
@@ -293,6 +319,43 @@ below show the simulation results of the walking task and the changes in velocit
 <ul>
 <li><p style="font-size:50%">Abhishek Chatterjee. <I><B>Three-dimensional indeterminate impacts in legged robotic locomotion. </I></B> Available from Dissertations & Theses @ University of Texas - Arlington; ProQuest Dissertations & Theses Global.</p></li>
 </ul>
+
+<h2>Dormant Projects (To be resumed later ...)</h2>
+<h3><a id="soft"><b>Soft Body Contact and Impact</b></a></h3>
+<p> The goal of this work is to develop a model soft/flexible body contact and
+impacts. Soft/Flexible bodies undergo large deformations during collision, which
+are governed by the stiffness and damping properties of the body.
+The focus of this work will be to develop a method that extends the rigidity
+based multi-point contact and impact analysis, proposed in our earlier works,
+to incorporate large deformations during contact/impact.
+The benchmark problem that would be analyzed in this work is that of
+a rigid ball contacting/impacting a inflated air-bladder.
+This particular problem would have applications in the modeling of
+a variety of mechanical systems such as smart pressure beds (pictured below), soft robotic systems,
+bionic comoponents, etc.
+</p>
+<center>
+<figure>
+<table class="imgtable"><tr>
+  <td><img src="media/bed1.jpg" width="150" />&nbsp;</td>
+  <td><img src="media/bed2.jpg" width="150" />&nbsp;</td>
+  </tr>
+</table>
+<figcaption>Fig - A CAD rendering of smart pressure bed. The bed would adjust the bladder
+  pressure and bed configuration to minimize risk of bed sores and pressure ulcers.</figcaption>
+</figure>
+</center>
+<p> A preliminary result, shown below, uses a constraint-embedding approach to
+model the contact between a planar ball and an inflated air-bladder. The
+bladder is modeled using a large number of nodal masses, connected by spring-damper models.
+</p>
+<center><figure><video width="480" height="320" autoplay loop>
+  <source src="media/DropBall1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<figcaption>Fig - A preliminary result of a ball dropping on an air-bladder.</figcaption>
+</figure></center>
+<p> This project is currently on hold. Further works on this topic based on the eigensolution approach will be considered in the future.</p>
 
 <h2>Undegraduate Projects - The baby steps towards research 😁</h2>
 <h3><a id="roadrumble"><b>Road Rumble Energy Harvestor</b></a></h3>
